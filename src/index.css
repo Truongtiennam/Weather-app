@@ -1,0 +1,249 @@
+/* :root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url(/src/assets/img/background.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  position: relative;
+  width: 350px;
+  height: 550px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  border-radius: 16px;
+  padding: 20px;
+  color: #000;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+    
+.search-box i {
+  position: absolute;
+  left: 10px;
+  font-size: 28px;
+}
+    
+.search-box input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  outline: none;
+  border-radius: 10px;
+  font-size: 18px;
+  color: rgb(59, 32, 50);
+  font-weight: 500;
+  text-transform: capitalize;
+  padding: 0 48px 0 42px;
+}
+    
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: capitalize;
+}
+    
+.search-box button {
+  position: absolute;
+  right: 0;
+  width: 40px;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 28px;
+  color: #271a1a;
+  padding: 0 40px 0 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.4s;
+  z-index: 99;
+}
+    
+.search-box .clear {
+  margin-right: 40px;
+  margin-bottom: 8%;
+}
+    
+.search-box .ti-close {
+  font-size: 24px;
+  font-weight: 500;
+}
+    
+.search-box button:hover {
+  color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.4);
+}
+    
+.weather-box {
+  text-align: center;
+  margin: 40px 0;
+}
+    
+.weather-box img {
+  width: 60%;
+}
+    
+.weather-box .temp {
+  position: relative;
+  font-size: 64px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+    
+.weather-box .temp span {
+  position: absolute;
+  font-size: 28px;
+  margin-left: 5px;
+}
+    
+.weather-box .min-max-temp {
+  font-size: 26px;
+  font-weight: 600;
+  position: relative;
+}
+    
+.weather-box .min-max-temp span {
+  position: absolute;
+  font-size: 20px;
+  margin-left: 5px;
+}
+    
+.weather-box .desc {
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+    
+.weather-details {
+  display: flex;
+  position: absolute;
+  bottom: 40px;
+  left: 7%;
+  width: 100;
+  padding: 0 20px;
+}
+    
+.weather-details .text {
+  margin-left: 10px;
+  white-space: nowrap;
+}
+    
+.weather-details .humidity,
+.weather-details .wind {
+  display: flex;
+  align-items: center;
+  width: 60%;
+}
+    
+.weather-details .humidity {
+  padding-left: 10px;
+  justify-content: flex-start; 
+}
+    
+.weather-details .wind {
+  padding-left: 20px;
+  justify-content: flex-end; 
+}
+    
+.weather-details span {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 700;
+}
+    
+.weather-details p {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
+  
