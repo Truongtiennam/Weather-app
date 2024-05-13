@@ -10,6 +10,16 @@ import snowImg from "../assets/img/snow.png";
 
 function Card(){
 
+    const WeatherType = {
+        CLOUDS: "Clouds",
+        CLEAR: "Clear",
+        RAIN: "Rain",
+        SNOW: "Snow",
+        MIST: "Mist",
+        HAZE: "Haze"
+    };
+
+
     const inputRef = useRef(null);
     const imgRef = useRef(null);
     const tempRef = useRef(null);
@@ -19,11 +29,12 @@ function Card(){
     const minMaxTempRef = useRef(null);
 
     const handleSearch = () => {
-
+        
         const inputValue = inputRef.current.value.trim();
         const city = inputValue;
         
         const apiKey = "85317bd8be7361933971284aece17b19";
+        
         const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     
         fetch(apiURL)
@@ -39,23 +50,23 @@ function Card(){
                 var country = data.sys.country;
                 
                 switch(data.weather[0].main){
-                    case "Clouds":
+                    case WeatherType.CLOUDS:
                         
                         imgRef.current.src = cloudImg;
                         break;
-                    case "Clear":
+                    case WeatherType.CLEAR:
                         
                         imgRef.current.src = clearImg;
                         break;
-                    case "Rain":
+                    case WeatherType.RAIN:
                         
                         imgRef.current.src = rainImg;
                         break;
-                    case "Snow":
+                    case WeatherType.SNOW:
                         
                         imgRef.current.src = snowImg;
                         break;
-                    case "Mist", "Haze":
+                    case WeatherType.MIST, WeatherType.HAZE:
                         
                         imgRef.current.src = mistImg;
                         break;
