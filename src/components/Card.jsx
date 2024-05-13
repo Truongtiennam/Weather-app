@@ -16,9 +16,8 @@ function Card(){
         RAIN: "Rain",
         SNOW: "Snow",
         MIST: "Mist",
-        HAZE: "Haze"
+        HAZE: "Haze",
     };
-
 
     const inputRef = useRef(null);
     const imgRef = useRef(null);
@@ -30,13 +29,11 @@ function Card(){
 
     const handleSearch = () => {
         
-        const inputValue = inputRef.current.value.trim();
-        const city = inputValue;
-        
-        const apiKey = "85317bd8be7361933971284aece17b19";
-        
-        const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-    
+        const city = inputRef.current.value.trim();
+
+        const apiKEY = import.meta.env.VITE_API_KEY;
+        const apiURL = `${import.meta.env.VITE_API_URL}?q=${city}&units=metric&appid=${apiKEY}`;
+
         fetch(apiURL)
             .then(response => response.json())
             .then(data => {
@@ -95,14 +92,12 @@ function Card(){
             })
       };
 
-
       function Enter(e){
         if(e.key === "Enter"){
             handleSearch();
         }
       }
      
-
       function Clear(){
         inputRef.current.value = "";
       }
