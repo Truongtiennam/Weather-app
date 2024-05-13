@@ -31,7 +31,7 @@ function Card(){
         
         const city = inputRef.current.value.trim();
 
-        const apiKEY = import.meta.env.API_KEY;
+        const apiKEY = import.meta.env.VITE_API_KEY;
         const apiURL = `${import.meta.env.VITE_API_URL}?q=${city}&units=metric&appid=${apiKEY}`;
 
         fetch(apiURL)
