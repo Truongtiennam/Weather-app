@@ -8,16 +8,18 @@ import mistImg from "../assets/img/mist.png";
 import rainImg from "../assets/img/rain.png";
 import snowImg from "../assets/img/snow.png";
 
-function Card(){
 
-    const WeatherType = {
-        CLOUDS: "Clouds",
-        CLEAR: "Clear",
-        RAIN: "Rain",
-        SNOW: "Snow",
-        MIST: "Mist",
-        HAZE: "Haze",
-    };
+const weatherImages = {
+    Clouds: cloudImg,
+    Clear: clearImg,
+    Rain: rainImg,
+    Snow: snowImg,
+    Mist: mistImg,
+    Haze: mistImg,
+};
+
+
+function Card(){
 
     const inputRef = useRef(null);
     const imgRef = useRef(null);
@@ -38,38 +40,17 @@ function Card(){
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                var temp = Math.round(data.main.temp);
-                var minTemp = Math.round(data.main.temp_min);
-                var maxTemp = Math.round(data.main.temp_max);
-                var desc = data.weather[0].description;
-                var humidity = data.main.humidity;
-                var wind = data.wind.speed;
-                var country = data.sys.country;
+                const temp = Math.round(data.main.temp);
+                const minTemp = Math.round(data.main.temp_min);
+                const maxTemp = Math.round(data.main.temp_max);
+                const desc = data.weather[0].description;
+                const humidity = data.main.humidity;
+                const wind = data.wind.speed;
+                const country = data.sys.country;
+                const weatherType = data.weather[0].main;
                 
-                switch(data.weather[0].main){
-                    case WeatherType.CLOUDS:
-                        
-                        imgRef.current.src = cloudImg;
-                        break;
-                    case WeatherType.CLEAR:
-                        
-                        imgRef.current.src = clearImg;
-                        break;
-                    case WeatherType.RAIN:
-                        
-                        imgRef.current.src = rainImg;
-                        break;
-                    case WeatherType.SNOW:
-                        
-                        imgRef.current.src = snowImg;
-                        break;
-                    case WeatherType.MIST, WeatherType.HAZE:
-                        
-                        imgRef.current.src = mistImg;
-                        break;
-                }
-                               
-                inputRef.current.value = `${city}, ${country}`;
+                imgRef.current.src = weatherImages[weatherType] || errorImg;               
+                inputRef.current.value = city
                 tempRef.current.innerHTML = `${temp} <span>℃</span>`;
                 descRef.current.textContent = desc;
                 descRef.current.style.color = "black";
@@ -151,7 +132,7 @@ function Card(){
                     </div>
                 </div>
             </div>
-
+            
         </div>
     );
 }
